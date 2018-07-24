@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function task() {
+
+            let num1 = Math.floor(Math.random() * 250);
+
+            console.log(num1)
+            fetch("https://restcountries.eu/rest/v2/all?fields=name")
+                .then(res => { return res.json(); })
+                .then(res2 => {
+                    fetch(`https://restcountries.eu/rest/v2/name/${res2[num1].name}`)
+                        .then(res3 => { return res3.json(); })
+                        .then(res4 => { document.getElementById("g").innerText=JSON.stringify(res4); })
+
+        })} 
+    </script>
+
+
+</head>
+
+<body>
+
+    <button onclick="task()">your wish its my commend </button>
+<p id="g"></p>
+
+
+</body>
+
+</html>
+
